@@ -10,7 +10,7 @@ const vault = new Vault({
     // cert: './client.crt',
     // key: './client.key',
     // cacert: './ca.crt',
-    baseUrl: 'http://127.0.0.1:8200/v1',
+    baseUrl: 'http://127.0.0.1:8200/v1', 
     rootPath: 'secret',
     timeout: 1000,
     proxy: false
