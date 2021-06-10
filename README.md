@@ -16,31 +16,33 @@ If you do not have Node.js installed on your machine already, please follow the 
 
 2) Install Node Version Manager (nvm) by running the following.
 
-    ```
+    ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
     ```
 
 3) Activate nvm by running the following.
 
-    ```
+    ```bash
     . ~/.nvm/nvm.sh
     ```
 
 4) Use nvm to install the latest version of Node.js by running the following. 
    
-    ```
+    ```bash
     nvm install node
     ```
 
 5) Test that Node.js is installed and running correctly by running the following.
 
-    ```
+    ```bash
     node -e "console.log('Running Node.js ' + process.version)"
     ```
 
     If Node.js is installed correctly, you should see the following message:
 
-    > Running Node.js **[VERSION]**
+    ```
+    Running Node.js **[VERSION]**
+    ```
 
 ---
 
@@ -48,7 +50,7 @@ If you do not have Node.js installed on your machine already, please follow the 
 
 To install the Hashi-Vault-JS library into an existing Node.js application, run the following command:
 
-```
+```bash
 npm install hashi-vault-js
 ```
 
@@ -60,7 +62,7 @@ To view additional documentation / how-to's for HashiVaultJS, check out Hashi-Va
 
 Clone this repository from BitBucket to your local machine.
 
-```
+```bash
 git clone [TODO: PUT THE PROPER REPO HERE]
 ```
 
@@ -70,10 +72,8 @@ git clone [TODO: PUT THE PROPER REPO HERE]
 
 Set the following environment variables to configure which Vault server this Node.js application connects to. These variables tell NodeJs where your instance of Vault is running and which token to use for authentication.
 
-```
+```bash
 export VAULT_ADDR='http://127.0.0.1:8200'
-```
-```
 export VAULT_TOKEN='[ROOT TOKEN]'
 ```
 
@@ -83,37 +83,39 @@ export VAULT_TOKEN='[ROOT TOKEN]'
 
 Run app.js to execute the NodeJs app. You will see output when the operations performed are successful.
 
-```
+```bash
 cd node_vault
 node app.js
 ```
 
 If the app ran successfully, you should see the following output:
 
-    Using Vault at: http://127.0.0.1:8200
-    Running Vault health check.
-    {
-    initialized: true,
-    sealed: false,
-    standby: false,
-    performance_standby: false,
-    replication_performance_mode: 'disabled',
-    replication_dr_mode: 'disabled',
-    server_time_utc: 1623348347,
-    version: '1.7.2',
-    cluster_name: 'vault-cluster-826c4fd5',
-    cluster_id: '973965ed-654b-3eb0-50ec-bf150d1d2903'
-    }
-    Updating secret name: 'hello' to Vault
-    Updating secret data:
-    { item1: 'adp is awesome', item2: 'vault rocks!' }
-    Reading secret name: hello
-    { item1: 'adp is awesome', item2: 'vault rocks!' }
-    Updating secret name: 'hello' to Vault
-    Updating secret data:
-    { item1: 'new data' }
-    Reading secret name: hello
-    { item1: 'new data' }
-    Deleting secret name: hello
+```bash
+Using Vault at: http://127.0.0.1:8200
+Running Vault health check.
+{
+initialized: true,
+sealed: false,
+standby: false,
+performance_standby: false,
+replication_performance_mode: 'disabled',
+replication_dr_mode: 'disabled',
+server_time_utc: 1623348347,
+version: '1.7.2',
+cluster_name: 'vault-cluster-826c4fd5',
+cluster_id: '973965ed-654b-3eb0-50ec-bf150d1d2903'
+}
+Updating secret name: 'hello' to Vault
+Updating secret data:
+{ item1: 'adp is awesome', item2: 'vault rocks!' }
+Reading secret name: hello
+{ item1: 'adp is awesome', item2: 'vault rocks!' }
+Updating secret name: 'hello' to Vault
+Updating secret data:
+{ item1: 'new data' }
+Reading secret name: hello
+{ item1: 'new data' }
+Deleting secret name: hello
+```
 
 You can also login to the Vault UI to verify that the secret created in this example was stored successful. http://127.0.0.1:8200/ui
