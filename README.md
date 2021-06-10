@@ -45,17 +45,15 @@ If you do not have Node.js installed on your machine already, please follow the 
 
 ---
 
-## Adding NodeVault to an existing Node.js repository
+## Add HashiVaultJS to an existing Node.js repository
 
-To install the NodeVault library into an existing Node.js application, run the following command:
+To install the HashiVaultJS library into an existing Node.js application, run the following command:
 
 ```
-npm install node-vault
+npm install hashi-vault-js
 ```
 
-The official Node.js library supported and recommend by HashiCorp for Vault can be found here: https://github.com/kr1sp1n/node-vault
-
-If you look in the /examples folder, you can see more detailed examples of common Vault operations beyond what is demonstrated in this repository.
+To view additional documentation / how-to's for HashiVaultJS, check out their github repository location here: https://github.com/rod4n4m1/hashi-vault-js
 
 ---
 
@@ -64,5 +62,61 @@ If you look in the /examples folder, you can see more detailed examples of commo
 First, clone this repository from BitBucket
 
 ```
-TODO: PUT THE GIT CLONE COMMAND HERE POINTING TO RELEVANT REPO
+git clone [TODO: PUT THE PROPER REPO HERE]
 ```
+
+---
+
+## Set environment variables
+
+Set the following environment variables to configure which Vault server this Node.js application connects to.
+
+```
+export VAULT_ADDR='http://127.0.0.1:8200'
+```
+```
+export VAULT_TOKEN='[ROOT TOKEN]'
+```
+
+---
+
+## Run NodeJs app
+
+Run app.js to execute the NodeJs app. You will see output when the operations performed are successful.
+
+```
+cd node_vault
+node app.js
+```
+
+If the app ran successfully, you should see the following output:
+
+    >>>
+    Using Vault at: http://127.0.0.1:8200
+    Running Vault health check.
+    {
+    initialized: true,
+    sealed: false,
+    standby: false,
+    performance_standby: false,
+    replication_performance_mode: 'disabled',
+    replication_dr_mode: 'disabled',
+    server_time_utc: 1623348347,
+    version: '1.7.2',
+    cluster_name: 'vault-cluster-826c4fd5',
+    cluster_id: '973965ed-654b-3eb0-50ec-bf150d1d2903'
+    }
+    Updating secret name: 'hello' to Vault
+    Updating secret data:
+    { item1: 'adp is awesome', item2: 'vault rocks!' }
+    Reading secret name: hello
+    { item1: 'adp is awesome', item2: 'vault rocks!' }
+    Updating secret name: 'hello' to Vault
+    Updating secret data:
+    { item1: 'new data' }
+    Reading secret name: hello
+    { item1: 'new data' }
+    Deleting secret name: hello
+    >>>
+
+You can also login to the Vault UI to veruft that the secret created in this example was successful. http://127.0.0.1:8200/ui
