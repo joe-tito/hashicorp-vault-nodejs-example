@@ -1,13 +1,12 @@
 # Node.js Vault Example
 
-This repository is meant to demonstrate some of the basic functionality of HashiCorp Vault. Specifically, it demonstrates storing and accessing secretes stored in HashiCorp's KV2 (key/value pair) engine. 
+This repository is meant to demonstrate some of the basic functionality of HashiCorp Vault. Specifically, it demonstrates storing and accessing secrets stored in HashiCorp's KV2 (key/value pair) engine. 
 
 This repository demonstrates the following Vault functionality:
 
 - How to connect a Node.js application to a running instance of Vault
-- How to create a new key/value secret and store it in Vault
-- How to retried an existing key/value secret from Vault
-- How to delete an existing key/value secret from Vault
+- How to write a key/value secret to Vault
+- How to read a key/value secret from Vault
 
 ## NodeJS Installation
 
@@ -45,21 +44,21 @@ If you do not have Node.js installed on your machine already, please follow the 
 
 ---
 
-## Add HashiVaultJS to an existing Node.js repository
+## Add Hashi-Vault-JS to an existing Node.js repository
 
-To install the HashiVaultJS library into an existing Node.js application, run the following command:
+To install the Hashi-Vault-JS library into an existing Node.js application, run the following command:
 
 ```
 npm install hashi-vault-js
 ```
 
-To view additional documentation / how-to's for HashiVaultJS, check out their github repository location here: https://github.com/rod4n4m1/hashi-vault-js
+To view additional documentation / how-to's for HashiVaultJS, check out Hashi-Vault-JS's github repository located here: https://github.com/rod4n4m1/hashi-vault-js
 
 ---
 
 ## Clone this repository
 
-First, clone this repository from BitBucket
+Clone this repository from BitBucket to your local machine.
 
 ```
 git clone [TODO: PUT THE PROPER REPO HERE]
@@ -69,7 +68,7 @@ git clone [TODO: PUT THE PROPER REPO HERE]
 
 ## Set environment variables
 
-Set the following environment variables to configure which Vault server this Node.js application connects to.
+Set the following environment variables to configure which Vault server this Node.js application connects to. These variables tell NodeJs where your instance of Vault is running and which token to use for authentication.
 
 ```
 export VAULT_ADDR='http://127.0.0.1:8200'
@@ -91,7 +90,6 @@ node app.js
 
 If the app ran successfully, you should see the following output:
 
-    >>>
     Using Vault at: http://127.0.0.1:8200
     Running Vault health check.
     {
@@ -117,6 +115,5 @@ If the app ran successfully, you should see the following output:
     Reading secret name: hello
     { item1: 'new data' }
     Deleting secret name: hello
-    >>>
 
-You can also login to the Vault UI to veruft that the secret created in this example was successful. http://127.0.0.1:8200/ui
+You can also login to the Vault UI to verify that the secret created in this example was stored successful. http://127.0.0.1:8200/ui
