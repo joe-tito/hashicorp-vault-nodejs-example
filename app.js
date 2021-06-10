@@ -36,12 +36,6 @@ const writeSecret = async(name, data) => {
     return await vault.updateKVSecret(process.env.VAULT_TOKEN, name, data);
 }
 
-// Delete a secret in Vault
-const deleteSecret = async(name) => {
-    console.log('Deleting secret name: ' + name);
-    return await vault.destroyVersionsKVSecret(process.env.VAULT_TOKEN, name, [1,2]);
-}
-
 let secret = {
     name: 'hello',
     data: {
@@ -60,17 +54,15 @@ const callTasks = () =>
 
         console.log(status);
 
-        updateSecret(secret.name, secret.data).then(() => {
+        writeSecret(secret.name, secret.data).then(() => {
 
             readSecret(secret.name).then((returnedSecret) => {
                 console.log(returnedSecret.data);
 
-                updateSecret(secret.name, newData).then(() => {
+                writeSecret(secret.name, newData).then(() => {
 
                     readSecret(secret.name).then((returnedSecret) => {
                         console.log(returnedSecret.data);
-
-                        deleteSecret(secret.name);
                     });
                 });
             });
