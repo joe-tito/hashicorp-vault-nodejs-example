@@ -121,4 +121,7 @@ Reading secret name: hello
 Deleting secret name: hello
 ```
 
-You can also login to the Vault UI to verify that the secret created in this example was stored successful. http://127.0.0.1:8200/ui
+To validate the KV was written successfully, you can also:
+
+- Login to the Vault UI: http://127.0.0.1:8200/ui
+- Verify via the command line `vault read kv secret/hello`
