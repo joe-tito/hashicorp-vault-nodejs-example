@@ -30,7 +30,7 @@ const readSecret = async(name) => {
 
 // Update a secret in Vault
 const writeSecret = async(name, data) => {
-    console.log('Updating secret name: \'' + name + '\' to Vault');
+    console.log('Updating secret name: \'' + name);
     console.log('Updating secret data:');
     console.log(data);
     return await vault.updateKVSecret(process.env.VAULT_TOKEN, name, data);
@@ -44,8 +44,10 @@ let secret = {
     }
 }
 
-let newData = {
-    item1: 'new data'
+let newSecretData = {
+    item1: 'adp is awesome',
+    item2: 'hashi vault is super cool',
+    item3: 'protect your secrets!'
 }
 
 const callTasks = () => 
@@ -59,7 +61,7 @@ const callTasks = () =>
             readSecret(secret.name).then((returnedSecret) => {
                 console.log(returnedSecret.data);
 
-                writeSecret(secret.name, newData).then(() => {
+                writeSecret(secret.name, newSecretData).then(() => {
 
                     readSecret(secret.name).then((returnedSecret) => {
                         console.log(returnedSecret.data);

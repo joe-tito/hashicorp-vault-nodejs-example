@@ -8,6 +8,8 @@ This repository demonstrates the following Vault functionality:
 - How to write a key/value secret to Vault
 - How to read a key/value secret from Vault
 
+---
+
 ## NodeJS Installation
 
 If you do not have Node.js installed on your machine already, please follow the instructions below to install the latest version of Node.js
@@ -68,13 +70,14 @@ git clone [TODO: PUT THE PROPER REPO HERE]
 
 ---
 
-## Set environment variables
+## Configure your environment to connect to Vault
 
-Set the following environment variables to configure which Vault server this Node.js application connects to. These variables tell NodeJs where your instance of Vault is running and which token to use for authentication.
+Set the following environment variables to configure which Vault server this Node.js application connects to. These variables tell NodeJs where your instance of Vault is runnin, which token to use for authentication and which namespace to use.
 
 ```bash
 export VAULT_ADDR='http://127.0.0.1:8200'
-export VAULT_TOKEN='[ROOT TOKEN]'
+export VAULT_TOKEN='[TOKEN]'
+export VAULT_NAMESPACE=''
 ```
 
 ---
@@ -105,12 +108,12 @@ version: '1.7.2',
 cluster_name: 'vault-cluster-826c4fd5',
 cluster_id: '973965ed-654b-3eb0-50ec-bf150d1d2903'
 }
-Updating secret name: 'hello' to Vault
+Updating secret name: 'hello'
 Updating secret data:
 { item1: 'adp is awesome', item2: 'vault rocks!' }
 Reading secret name: hello
 { item1: 'adp is awesome', item2: 'vault rocks!' }
-Updating secret name: 'hello' to Vault
+Updating secret name: 'hello'
 Updating secret data:
 { item1: 'new data' }
 Reading secret name: hello
