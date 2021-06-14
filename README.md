@@ -94,31 +94,38 @@ node app.js
 If the app ran successfully, you should see the following output:
 
 ```bash
-Using Vault at: http://127.0.0.1:8200
+Using Vault at: undefined
 Running Vault health check.
 {
-initialized: true,
-sealed: false,
-standby: false,
-performance_standby: false,
-replication_performance_mode: 'disabled',
-replication_dr_mode: 'disabled',
-server_time_utc: 1623348347,
-version: '1.7.2',
-cluster_name: 'vault-cluster-826c4fd5',
-cluster_id: '973965ed-654b-3eb0-50ec-bf150d1d2903'
+  initialized: true,
+  sealed: false,
+  standby: false,
+  performance_standby: false,
+  replication_performance_mode: 'disabled',
+  replication_dr_mode: 'disabled',
+  server_time_utc: 1623671339,
+  version: '1.7.2',
+  cluster_name: 'vault-cluster-ccccb3ab',
+  cluster_id: 'f37ef360-3f90-bb81-db45-e8a4c140d112'
 }
-Updating secret name: 'hello'
+Updating secret name: 'hello
 Updating secret data:
 { item1: 'adp is awesome', item2: 'vault rocks!' }
 Reading secret name: hello
 { item1: 'adp is awesome', item2: 'vault rocks!' }
-Updating secret name: 'hello'
+Updating secret name: 'hello
 Updating secret data:
-{ item1: 'new data' }
+{
+  item1: 'adp is awesome',
+  item2: 'hashi vault is super cool',
+  item3: 'protect your secrets!'
+}
 Reading secret name: hello
-{ item1: 'new data' }
-Deleting secret name: hello
+{
+  item1: 'adp is awesome',
+  item2: 'hashi vault is super cool',
+  item3: 'protect your secrets!'
+}
 ```
 
 To validate the KV was written successfully, you can also:
