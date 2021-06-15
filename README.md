@@ -132,3 +132,12 @@ To validate the KV was written successfully, you can also:
 
 - Login to the Vault UI: http://127.0.0.1:8200/ui
 - Verify via the command line `vault read kv secret/hello`
+
+
+# Run as Typescript
+
+You can also run this example using Typescript
+
+```bash
+./node_modules/typescript/bin/tsc app-typescript.ts && node app-typescript.ts
+```
